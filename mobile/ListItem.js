@@ -379,7 +379,9 @@ define([
 			if(opts.moveTo || opts.href || opts.url || this.clickable){
 				if(!this.noArrow && !(parent && parent.selectOne)){
 					c = this.arrowClass || "mblDomButtonArrow";
-					domAttr.set(this.domNode, "role", "button");
+					
+					//this is a listitem and should not have a role of button. Breaks focus of inner eleemnt
+					domAttr.set(this.domNode, "role", "listitem");
 				}
 			}
 			if(c){
